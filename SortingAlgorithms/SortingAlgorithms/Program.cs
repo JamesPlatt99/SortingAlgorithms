@@ -10,7 +10,8 @@ namespace SortingAlgorithms
             var generator = new RandomListGenerator();
             var sorters = new List<Sorting.ISorter>(){
                 new Sorting.SelectionSort(),
-                new Sorting.InsertionSort()
+                new Sorting.InsertionSort(),
+                new Sorting.MergeSort()
             };
             List<int> list = generator.GetNewList(10);
             List<int> tmpList;
@@ -18,7 +19,7 @@ namespace SortingAlgorithms
             foreach(Sorting.ISorter sorter in sorters)
             {
                 sorter.WriteName();
-                tmpList = sorter.Sort(list);
+                tmpList = sorter.Sort(generator.GetNewList(10));
                 DisplayList(tmpList);
             }                   
             Console.ReadLine();
