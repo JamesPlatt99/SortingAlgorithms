@@ -71,13 +71,6 @@ namespace SortingAlgorithms.Sorting
                 output.Add(new List<int>() { val });
             }
             return output;
-        }
-
-        //public Tuple<List<int>, List<int>> SplitList(List<int> list)
-        //{
-        //    List<int> left = list.Take(list.Count / 2).ToList();
-        //    List<int> right = list.Skip(list.Count / 2).ToList();
-        //    return Tuple.Create(left, right);
-        //}
+        }        
     }
 }
