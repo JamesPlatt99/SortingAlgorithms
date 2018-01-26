@@ -14,7 +14,8 @@ namespace SortingAlgorithms
             var sorters = new List<Sorting.ISorter>(){
                 new Sorting.SelectionSort(),
                 new Sorting.InsertionSort(),
-                new Sorting.MergeSort()
+                new Sorting.MergeSort(),
+                new Sorting.QuickSort()
             };
 
             for(int i = 1; i < 31; i++)
