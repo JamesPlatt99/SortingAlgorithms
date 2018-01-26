@@ -9,6 +9,7 @@ namespace SortingAlgorithms
     {
         static void Main(string[] args)
         {
+            var listGenerator = listType();
             bool showLists = ShowSortedList();
             var sorters = new List<Sorting.ISorter>(){
                 new Sorting.SelectionSort(),
@@ -18,7 +19,7 @@ namespace SortingAlgorithms
 
             for(int i = 1; i < 31; i++)
             {
-                ExecuteSorts(Convert.ToInt32(Math.Pow(2,i) -1), sorters, showLists);
+                ExecuteSorts(Convert.ToInt32(Math.Pow(2,i) -1), sorters, showLists, listGenerator);
             }
             
             Console.ReadLine();
@@ -30,10 +31,23 @@ namespace SortingAlgorithms
             char input = Console.ReadLine()[0];
             return input == 'y';
         }
-
-        static void ExecuteSorts(int listLength, List<Sorting.ISorter> sorters, Boolean showSortedLists)
+        static ListGenerators.IListGenerator listType()
         {
-            var generator = new RandomListGenerator();
+            var listGeneratorFactory = new ListGenerators.ListGeneratorFactory();
+
+            Console.WriteLine("List type:");
+            foreach (var type in listGeneratorFactory.GetTypes())
+            {
+                Console.WriteLine($" {(int) type} {type.ToString()}");
+            }
+            int input = 0;
+            while (!int.TryParse(Console.ReadLine(), out input) && input >= 0 && input < listGeneratorFactory.listTypeCount) { }
+
+            return listGeneratorFactory.GetListGenerator(input);
+        }
+
+        static void ExecuteSorts(int listLength, List<Sorting.ISorter> sorters, Boolean showSortedLists, ListGenerators.IListGenerator generator)
+        {
             List<int> tmpList;
             var t = new Stopwatch();
 
@@ -42,7 +56,7 @@ namespace SortingAlgorithms
             {
                 sorter.WriteName();
                 t.Restart();
-                tmpList = sorter.Sort(generator.GetNewList(listLength));
+                tmpList = sorter.Sort(generator.GetList(listLength));
                 t.Stop();
                 if (showSortedLists)
                 {

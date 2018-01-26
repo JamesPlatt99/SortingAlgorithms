@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SortingAlgorithms
+namespace SortingAlgorithms.ListGenerators
 {
-    class RandomListGenerator
+    class RandomListGenerator : IListGenerator
     {
-        public List<int> GetNewList(int length) {
+        public List<int> GetList(int length) {
             var output = new List<int>();
             var random = new Random();
             for (int i = 0; i < length; i++)
@@ -14,6 +14,6 @@ namespace SortingAlgorithms
                 output.Add(random.Next(0, 10 * length));
             }
             return output;
-        }
+        }        
     }
 }
