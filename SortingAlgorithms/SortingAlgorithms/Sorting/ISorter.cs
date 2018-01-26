@@ -7,6 +7,6 @@ namespace SortingAlgorithms.Sorting
     interface ISorter
     {
         List<int> Sort(List<int> list);
-        void WriteName();
+        String GetName();
     }
 }

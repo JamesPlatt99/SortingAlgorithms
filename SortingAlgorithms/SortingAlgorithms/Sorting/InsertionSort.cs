@@ -6,10 +6,11 @@ namespace SortingAlgorithms.Sorting
 {
     class InsertionSort : ISorter
     {
-        public void WriteName()
+        public String GetName()
         {
-            Console.WriteLine("Insertion Sort");
+            return "Insertion Sort";
         }
+
         public List<int> Sort(List<int> list)
         {
             int temp;

@@ -6,6 +6,10 @@ namespace SortingAlgorithms.ListGenerators
 {
     class RandomListGenerator : IListGenerator
     {
+        public String GetName()
+        {
+            return "Random";
+        }
         public List<int> GetList(int length) {
             var output = new List<int>();
             var random = new Random();

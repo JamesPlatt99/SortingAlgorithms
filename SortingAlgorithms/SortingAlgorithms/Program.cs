@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Text;
 using System.Threading;
 
 namespace SortingAlgorithms
@@ -9,23 +11,26 @@ namespace SortingAlgorithms
     {
         static void Main(string[] args)
         {
-            var listGenerator = listType();
-            bool showLists = ShowSortedList();
-            var sorters = new List<Sorting.ISorter>(){
-                new Sorting.SelectionSort(),
-                new Sorting.InsertionSort(),
-                new Sorting.MergeSort(),
-                new Sorting.QuickSort()
-            };
-
-            for(int i = 1; i < 31; i++)
+            while (true)
             {
-                ExecuteSorts(Convert.ToInt32(Math.Pow(2,i) -1), sorters, showLists, listGenerator);
-            }
-            
-            Console.ReadLine();
-        }
+                var listGenerator = listType();
+                var file = new StreamWriter($"ExecutionTimes{listGenerator.GetName()}.csv");
+                file.WriteLine("Name, Length, Time");
+                bool showLists = ShowSortedList();
+                var sorters = new List<Sorting.ISorter>(){
+                    new Sorting.SelectionSort(),
+                    new Sorting.InsertionSort(),
+                    new Sorting.MergeSort(),
+                    new Sorting.QuickSort()
+                };
 
+                for(int i = 1; i < 14; i++)
+                {
+                    file.WriteLine(ExecuteSorts(Convert.ToInt32(Math.Pow(2,i) -1), sorters, showLists, listGenerator));
+                }
+                file.Close();
+            }
+        }
         static Boolean ShowSortedList()
         {
             Console.Write("Do you want to display the sorted lists? (y/n) :");
@@ -47,15 +52,17 @@ namespace SortingAlgorithms
             return listGeneratorFactory.GetListGenerator(input);
         }
 
-        static void ExecuteSorts(int listLength, List<Sorting.ISorter> sorters, Boolean showSortedLists, ListGenerators.IListGenerator generator)
+        static string ExecuteSorts(int listLength, List<Sorting.ISorter> sorters, Boolean showSortedLists, ListGenerators.IListGenerator generator)
         {
+            var output = new StringBuilder();
             List<int> tmpList;
             var t = new Stopwatch();
 
             Console.WriteLine($"Length: {listLength}");
             foreach (Sorting.ISorter sorter in sorters)
             {
-                sorter.WriteName();
+                
+                Console.WriteLine(sorter.GetName());
                 t.Restart();
                 tmpList = sorter.Sort(generator.GetList(listLength));
                 t.Stop();
@@ -63,10 +70,11 @@ namespace SortingAlgorithms
                 {
                     DisplayList(tmpList);
                 }
+                output.AppendLine( $"{sorter.GetName()},{listLength},{t.ElapsedMilliseconds}");
                 Console.WriteLine($"   Time(ms) {t.ElapsedMilliseconds}");
             }
-            Console.ReadLine();
             Console.WriteLine();
+            return output.ToString();
         }
 
         static void DisplayList(List<int> list)

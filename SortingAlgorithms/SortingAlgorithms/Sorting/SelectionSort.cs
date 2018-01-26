@@ -6,10 +6,11 @@ namespace SortingAlgorithms.Sorting
 {
     class SelectionSort : ISorter
     {
-        public void WriteName()
+        public String GetName()
         {
-            Console.WriteLine("Selection Sort");
+            return "Selection Sort";
         }
+
         public List<int> Sort(List<int> list)
         {
             int minVal;

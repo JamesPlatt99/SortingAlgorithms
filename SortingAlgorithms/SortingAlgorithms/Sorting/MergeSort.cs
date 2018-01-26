@@ -7,9 +7,9 @@ namespace SortingAlgorithms.Sorting
 {
     class MergeSort : ISorter
     {
-        public void WriteName()
+        public String GetName()
         {
-            Console.WriteLine("Merge Sort");
+            return "Merge Sort";
         }
 
         public List<int> Sort(List<int> list)

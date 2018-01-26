@@ -7,9 +7,9 @@ namespace SortingAlgorithms.Sorting
 {
     class QuickSort : ISorter
     {
-        public void WriteName()
+        public String GetName()
         {
-            Console.WriteLine("Quick Sort");
+            return "Quick Sort";
         }
 
         public List<int> Sort(List<int> list)

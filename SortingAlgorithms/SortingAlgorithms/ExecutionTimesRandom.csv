@@ -1,0 +1,66 @@
+Name, Length, Time
+Selection Sort,1,0
+Insertion Sort,1,0
+Merge Sort,1,2
+Quick Sort,1,1
+
+Selection Sort,3,0
+Insertion Sort,3,0
+Merge Sort,3,2
+Quick Sort,3,0
+
+Selection Sort,7,0
+Insertion Sort,7,0
+Merge Sort,7,0
+Quick Sort,7,0
+
+Selection Sort,15,0
+Insertion Sort,15,0
+Merge Sort,15,0
+Quick Sort,15,0
+
+Selection Sort,31,0
+Insertion Sort,31,0
+Merge Sort,31,0
+Quick Sort,31,0
+
+Selection Sort,63,0
+Insertion Sort,63,0
+Merge Sort,63,0
+Quick Sort,63,0
+
+Selection Sort,127,0
+Insertion Sort,127,0
+Merge Sort,127,0
+Quick Sort,127,0
+
+Selection Sort,255,0
+Insertion Sort,255,0
+Merge Sort,255,0
+Quick Sort,255,0
+
+Selection Sort,511,0
+Insertion Sort,511,0
+Merge Sort,511,0
+Quick Sort,511,0
+
+Selection Sort,1023,2
+Insertion Sort,1023,3
+Merge Sort,1023,1
+Quick Sort,1023,0
+
+Selection Sort,2047,8
+Insertion Sort,2047,16
+Merge Sort,2047,3
+Quick Sort,2047,1
+
+Selection Sort,4095,33
+Insertion Sort,4095,49
+Merge Sort,4095,6
+Quick Sort,4095,3
+
+Selection Sort,8191,110
+Insertion Sort,8191,198
+Merge Sort,8191,19
+Quick Sort,8191,8
+

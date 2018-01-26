@@ -6,8 +6,13 @@ namespace SortingAlgorithms.ListGenerators
 {
     class SequentialListGenerator : IListGenerator
     {
-        public List<int> GetList(int length)
+        public String GetName()
         {
+            return "SequentialList";
+        }
+
+        public List<int> GetList(int length)
+        {        
             var output = new List<int>();
             for (int i = 0; i < length; i++)
             {
