@@ -25,18 +25,20 @@ namespace SortingAlgorithms.Sorting
         public List<List<int>> Merge(List<List<int>> list)
         {
             var output = new List<List<int>>();
-
-            while (list.Count > 0)
+            int listCount = list.Count;
+            while (listCount > 0)
             {
-                if (list.Count == 1)
+                if (listCount == 1)
                 {
                     output.Add(list[0]);
                 }
                 else
                 {
                     output.Add(Merge(Tuple.Create(list[0], list[1])));
+                    list.Remove(list[0]);
                 }
-                list = list.Skip(2).ToList();
+                list.Remove(list[0]);
+                listCount -= 2;
             }
 
             return output;
@@ -45,17 +47,22 @@ namespace SortingAlgorithms.Sorting
         public List<int> Merge(Tuple<List<int>, List<int>> lists)
         {
             var output = new List<int>();
-            while(lists.Item1.Count > 0 && lists.Item2.Count > 0)
+            int list1count = lists.Item1.Count;
+            int list2count = lists.Item2.Count;
+
+            while(list1count > 0 && list2count > 0)
             { 
                 if (lists.Item1[0] < lists.Item2[0])
                 {
                     output.Add(lists.Item1[0]);
                     lists.Item1.Remove(lists.Item1[0]);
+                    list1count--;
                 }
                 else
                 {
                     output.Add(lists.Item2[0]);
                     lists.Item2.Remove(lists.Item2[0]);
+                    list2count--;
                 }
             }
             output = output.Concat(lists.Item1).ToList();  

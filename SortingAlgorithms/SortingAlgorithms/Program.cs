@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 
 namespace SortingAlgorithms
@@ -15,7 +16,7 @@ namespace SortingAlgorithms
                 new Sorting.MergeSort()
             };
 
-            for(int i = 4; i < 31; i++)
+            for(int i = 1; i < 31; i++)
             {
                 ExecuteSorts(Convert.ToInt32(Math.Pow(2,i) -1), sorters, showLists);
             }
@@ -34,20 +35,20 @@ namespace SortingAlgorithms
         {
             var generator = new RandomListGenerator();
             List<int> tmpList;
-            System.Diagnostics.Stopwatch stopwatch;
+            var t = new Stopwatch();
 
             Console.WriteLine($"Length: {listLength}");
             foreach (Sorting.ISorter sorter in sorters)
             {
                 sorter.WriteName();
-                stopwatch = System.Diagnostics.Stopwatch.StartNew();
+                t.Restart();
                 tmpList = sorter.Sort(generator.GetNewList(listLength));
-                stopwatch.Stop();
+                t.Stop();
                 if (showSortedLists)
                 {
                     DisplayList(tmpList);
                 }
-                Console.WriteLine($"   Time(ms) {stopwatch.ElapsedMilliseconds}");
+                Console.WriteLine($"   Time(ms) {t.ElapsedMilliseconds}");
             }
             Console.ReadLine();
             Console.WriteLine();
