@@ -11,7 +11,7 @@ namespace SortingAlgorithms
             var random = new Random();
             for (int i = 0; i < length; i++)
             {
-                output.Add(random.Next(0, 100));
+                output.Add(random.Next(0, 10 * length));
             }
             return output;
         }
