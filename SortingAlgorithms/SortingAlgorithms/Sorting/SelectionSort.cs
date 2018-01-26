@@ -4,8 +4,12 @@ using System.Text;
 
 namespace SortingAlgorithms.Sorting
 {
-    class SelectionSort : Sorter
+    class SelectionSort : ISorter
     {
+        public void WriteName()
+        {
+            Console.WriteLine("Selection Sort");
+        }
         public List<int> Sort(List<int> list)
         {
             int minVal;
@@ -26,8 +30,6 @@ namespace SortingAlgorithms.Sorting
                 list[i] = minVal;
             }
             return list;
-        }
-
-
+        }        
     }
 }

@@ -4,8 +4,9 @@ using System.Text;
 
 namespace SortingAlgorithms.Sorting
 {
-    interface Sorter
+    interface ISorter
     {
         List<int> Sort(List<int> list);
+        void WriteName();
     }
 }

@@ -8,21 +8,29 @@ namespace SortingAlgorithms
         static void Main(string[] args)
         {
             var generator = new RandomListGenerator();
-            var selectionSorter = new Sorting.SelectionSort();
+            var sorters = new List<Sorting.ISorter>(){
+                new Sorting.SelectionSort(),
+                new Sorting.InsertionSort()
+            };
             List<int> list = generator.GetNewList(10);
-                
-            foreach (int val in list){
-                Console.WriteLine(val);
-            }
+            List<int> tmpList;
 
-            list = selectionSorter.Sort(list);
-            Console.WriteLine();
-            foreach (int val in list)
+            foreach(Sorting.ISorter sorter in sorters)
+            {
+                sorter.WriteName();
+                tmpList = sorter.Sort(list);
+                DisplayList(tmpList);
+            }                   
+            Console.ReadLine();
+        }
+
+        static void DisplayList(List<int> list)
+        {
+            foreach(int val in list)
             {
                 Console.WriteLine(val);
             }
-
-            Console.ReadLine();
+            Console.WriteLine();
         }
     }
 }
