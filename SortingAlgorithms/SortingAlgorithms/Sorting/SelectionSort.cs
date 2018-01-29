@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SortingAlgorithms.Sorting
 {
-    class SelectionSort : ISorter
+    public class SelectionSort : ISorter
     {
         public String GetName()
         {

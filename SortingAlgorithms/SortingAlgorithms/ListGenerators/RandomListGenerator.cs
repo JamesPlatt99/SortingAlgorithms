@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SortingAlgorithms.ListGenerators
 {
-    class RandomListGenerator : IListGenerator
+    public class RandomListGenerator : IListGenerator
     {
         public String GetName()
         {

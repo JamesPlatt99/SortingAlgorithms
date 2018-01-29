@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SortingAlgorithms.Sorting
 {
-    class QuickSort : ISorter
+    public class QuickSort : ISorter
     {
         public String GetName()
         {

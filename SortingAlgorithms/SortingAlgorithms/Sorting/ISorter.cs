@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SortingAlgorithms.Sorting
 {
-    interface ISorter
+    public interface ISorter
     {
         List<int> Sort(List<int> list);
         String GetName();

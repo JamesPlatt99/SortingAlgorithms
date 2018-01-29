@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace SortingAlgorithms.Sorting
 {
-    class MergeSort : ISorter
+    public class MergeSort : ISorter
     {
         public String GetName()
         {
