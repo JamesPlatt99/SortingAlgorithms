@@ -12,9 +12,9 @@ namespace SortingAlgorithms.Sorting
             return "Merge Sort";
         }
 
-        public List<int> Sort(List<int> list)
+        public List<IComparable> Sort(List<IComparable> list)
         {
-            List<List<int>> output = getSplitList(list);
+            List<List<IComparable>> output = getSplitList(list);
             while (output.Count > 1)
             {
                 output = Merge(output);
@@ -22,9 +22,9 @@ namespace SortingAlgorithms.Sorting
             return output.SelectMany(n => n).ToList();
         }
 
-        public List<List<int>> Merge(List<List<int>> list)
+        public List<List<IComparable>> Merge(List<List<IComparable>> list)
         {
-            var output = new List<List<int>>();
+            var output = new List<List<IComparable>>();
             int listCount = list.Count;
             while (listCount > 0)
             {
@@ -44,15 +44,15 @@ namespace SortingAlgorithms.Sorting
             return output;
         }
 
-        public List<int> Merge(Tuple<List<int>, List<int>> lists)
+        public List<IComparable> Merge(Tuple<List<IComparable>, List<IComparable>> lists)
         {
-            var output = new List<int>();
+            var output = new List<IComparable>();
             int list1count = lists.Item1.Count;
             int list2count = lists.Item2.Count;
 
             while(list1count > 0 && list2count > 0)
             { 
-                if (lists.Item1[0] < lists.Item2[0])
+                if (lists.Item1[0].CompareTo(lists.Item2[0]) < 0)
                 {
                     output.Add(lists.Item1[0]);
                     lists.Item1.Remove(lists.Item1[0]);
@@ -70,12 +70,12 @@ namespace SortingAlgorithms.Sorting
             return output;
         }
 
-        public List<List<int>> getSplitList(List<int> list)
+        public List<List<IComparable>> getSplitList(List<IComparable> list)
         {
-            var output = new List<List<int>>();
+            var output = new List<List<IComparable>>();
             foreach (int val in list)
             {
-                output.Add(new List<int>() { val });
+                output.Add(new List<IComparable>() { val });
             }
             return output;
         }        

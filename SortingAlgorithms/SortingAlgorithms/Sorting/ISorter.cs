@@ -6,7 +6,7 @@ namespace SortingAlgorithms.Sorting
 {
     public interface ISorter
     {
-        List<int> Sort(List<int> list);
+        List<IComparable> Sort(List<IComparable> list);
         String GetName();
     }
 }

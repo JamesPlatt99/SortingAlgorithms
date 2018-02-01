@@ -10,8 +10,8 @@ namespace SortingAlgorithms.ListGenerators
         {
             return "Random";
         }
-        public List<int> GetList(int length) {
-            var output = new List<int>();
+        public List<IComparable> GetList(int length) {
+            var output = new List<IComparable>();
             var random = new Random();
             for (int i = 0; i < length; i++)
             {

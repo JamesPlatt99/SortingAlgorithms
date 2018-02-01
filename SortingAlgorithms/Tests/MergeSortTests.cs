@@ -13,7 +13,7 @@ namespace Tests
         {
             var listGenerator = new SortingAlgorithms.ListGenerators.RandomListGenerator();
             var validator = new ListValidator();
-            List<int> list = listGenerator.GetList(500);
+            List<IComparable> list = listGenerator.GetList(500);
             Assert.AreEqual(validator.Validate(list, new SortingAlgorithms.Sorting.MergeSort()), true);
         }
         [TestMethod]
@@ -21,7 +21,7 @@ namespace Tests
         {
             var listGenerator = new SortingAlgorithms.ListGenerators.DistinctRandomListGenerator();
             var validator = new ListValidator();
-            List<int> list = listGenerator.GetList(500);
+            List<IComparable> list = listGenerator.GetList(500);
             Assert.AreEqual(validator.Validate(list, new SortingAlgorithms.Sorting.MergeSort()), true);
         }
         [TestMethod]
@@ -29,7 +29,7 @@ namespace Tests
         {
             var listGenerator = new SortingAlgorithms.ListGenerators.SequentialListGenerator();
             var validator = new ListValidator();
-            List<int> list = listGenerator.GetList(500);
+            List<IComparable> list = listGenerator.GetList(500);
             Assert.AreEqual(validator.Validate(list, new SortingAlgorithms.Sorting.MergeSort()), true);
         }
     }

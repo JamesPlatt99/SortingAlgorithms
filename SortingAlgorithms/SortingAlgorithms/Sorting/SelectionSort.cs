@@ -11,9 +11,9 @@ namespace SortingAlgorithms.Sorting
             return "Selection Sort";
         }
 
-        public List<int> Sort(List<int> list)
+        public List<IComparable> Sort(List<IComparable> list)
         {
-            int minVal;
+            IComparable minVal;
             int index = 0;
 
             for (int i = 0; i < list.Count; i++)
@@ -21,7 +21,7 @@ namespace SortingAlgorithms.Sorting
                 minVal = int.MaxValue;
                 for(int j = i; j < list.Count; j++)
                 {
-                    if(list[j] < minVal)
+                    if(list[j].CompareTo(minVal) < 0)
                     {
                         index = j;
                         minVal = list[j];

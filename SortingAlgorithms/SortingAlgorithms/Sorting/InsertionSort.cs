@@ -11,14 +11,14 @@ namespace SortingAlgorithms.Sorting
             return "Insertion Sort";
         }
 
-        public List<int> Sort(List<int> list)
+        public List<IComparable> Sort(List<IComparable> list)
         {
-            int temp;
+            IComparable temp;
             for (int i = 0; i < list.Count; i++)
             {
                 for(int j = i; j > 0; j--)
                 {
-                    if (list[j-1] > list[j])
+                    if (list[j-1].CompareTo(list[j]) > 0)
                     {
                         temp = list[j - 1];
                         list[j - 1] = list[j];

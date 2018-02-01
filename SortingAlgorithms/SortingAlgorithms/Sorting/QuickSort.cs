@@ -12,7 +12,7 @@ namespace SortingAlgorithms.Sorting
             return "Quick Sort";
         }
 
-        public List<int> Sort(List<int> list)
+        public List<IComparable> Sort(List<IComparable> list)
         {
             Pivot pivot = new Pivot(list);
             return pivot.ToList();
@@ -20,14 +20,14 @@ namespace SortingAlgorithms.Sorting
 
         private class Pivot
         {
-            int _value = 1;
-            List<int> _left = new List<int>();
-            List<int> _right = new List<int>();
+            IComparable _value = 1;
+            List<IComparable> _left = new List<IComparable>();
+            List<IComparable> _right = new List<IComparable>();
 
             Pivot _leftPivot;
             Pivot _rightPivot;
 
-            public Pivot(List<int> list)
+            public Pivot(List<IComparable> list)
             {
                 _value = list[0];
                 list.Remove(list[0]);
@@ -45,7 +45,7 @@ namespace SortingAlgorithms.Sorting
 
             private void Add(int value)
             {
-                if (value <= _value)
+                if (value.CompareTo( _value) <= 0)
                 {
                     _left.Add(value);
                 }
@@ -55,7 +55,7 @@ namespace SortingAlgorithms.Sorting
                 }
             }
 
-            private void Add(IEnumerable<int> values)
+            private void Add(IEnumerable<IComparable> values)
             {
                 foreach (int value in values)
                 {
@@ -63,9 +63,9 @@ namespace SortingAlgorithms.Sorting
                 }
             }
 
-            public List<int> ToList()
+            public List<IComparable> ToList()
             {
-                var output = new List<int>();
+                var output = new List<IComparable>();
                 if(_leftPivot != null)
                 {
                     output.AddRange(_leftPivot.ToList());

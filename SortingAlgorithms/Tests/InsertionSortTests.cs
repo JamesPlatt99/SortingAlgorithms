@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using SortingAlgorithms;
+using System;
 
 namespace Tests
 {
@@ -12,7 +13,7 @@ namespace Tests
         {
             var listGenerator = new SortingAlgorithms.ListGenerators.RandomListGenerator();
             var validator = new ListValidator();
-            List<int> list = listGenerator.GetList(500);
+            List<IComparable> list = listGenerator.GetList(500);
             Assert.AreEqual(validator.Validate(list, new SortingAlgorithms.Sorting.InsertionSort()), true);
         }
         [TestMethod]
@@ -20,7 +21,7 @@ namespace Tests
         {
             var listGenerator = new SortingAlgorithms.ListGenerators.DistinctRandomListGenerator();
             var validator = new ListValidator();
-            List<int> list = listGenerator.GetList(500);
+            List<IComparable> list = listGenerator.GetList(500);
             Assert.AreEqual(validator.Validate(list, new SortingAlgorithms.Sorting.InsertionSort()), true);
         }
         [TestMethod]
@@ -28,7 +29,7 @@ namespace Tests
         {
             var listGenerator = new SortingAlgorithms.ListGenerators.SequentialListGenerator();
             var validator = new ListValidator();
-            List<int> list = listGenerator.GetList(500);
+            List<IComparable> list = listGenerator.GetList(500);
             Assert.AreEqual(validator.Validate(list, new SortingAlgorithms.Sorting.InsertionSort()), true);
         }
     }

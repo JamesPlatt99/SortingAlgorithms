@@ -6,7 +6,7 @@ namespace SortingAlgorithms.ListGenerators
 {
     interface IListGenerator
     {
-        List<int> GetList(int length);
+        List<IComparable> GetList(int length);
         String GetName();
     }
 }

@@ -55,7 +55,7 @@ namespace SortingAlgorithms
         static string ExecuteSorts(int listLength, List<Sorting.ISorter> sorters, Boolean showSortedLists, ListGenerators.IListGenerator generator)
         {
             var output = new StringBuilder();
-            List<int> tmpList;
+            List<IComparable> tmpList;
             var t = new Stopwatch();
 
             Console.WriteLine($"Length: {listLength}");
@@ -77,7 +77,7 @@ namespace SortingAlgorithms
             return output.ToString();
         }
 
-        static void DisplayList(List<int> list)
+        static void DisplayList(List<IComparable> list)
         {
             Console.WriteLine(String.Join(',', list));
             Console.WriteLine();

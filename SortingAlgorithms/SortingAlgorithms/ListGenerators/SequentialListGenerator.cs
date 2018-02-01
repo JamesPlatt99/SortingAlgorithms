@@ -11,9 +11,9 @@ namespace SortingAlgorithms.ListGenerators
             return "SequentialList";
         }
 
-        public List<int> GetList(int length)
+        public List<IComparable> GetList(int length)
         {        
-            var output = new List<int>();
+            var output = new List<IComparable>();
             for (int i = 0; i < length; i++)
             {
                 output.Add(i);
